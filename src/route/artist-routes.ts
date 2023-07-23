@@ -1,7 +1,7 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import ArtistController from '../controller/artist-controller';
 
-const artistRoutes = express.Router()
+const artistRoutes = express.Router();
 
 artistRoutes.get('/', ArtistController.getAllArtists);
 artistRoutes.get('/:id', ArtistController.getArtistById);
