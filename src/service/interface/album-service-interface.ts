@@ -1,11 +1,11 @@
 import Album from "../../model/album";
 
 interface AlbumServiceInterface {
-  getAlbum(id: number): Album;
-  getAllAlbums(): Album[];
-  createAlbum(album: Album): Album;
-  updateAlbum(album: Album): Album;
-  deleteAlbum(id: number): void;
+  getAlbum(id: number): Promise<Album>;
+  getAllAlbums(): Promise<Album[]>;
+  createAlbum(album: Album): Promise<Album>;
+  updateAlbum(album: Album): Promise<Album>;
+  deleteAlbum(id: number): Promise<void>;
 }
 
 export default AlbumServiceInterface;

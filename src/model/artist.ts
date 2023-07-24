@@ -1,18 +1,27 @@
-class Artist {
-  private _id: number;
-  private _name: string;
+import Album from "./album";
 
-  public constructor(id: number, name: string) {
-    this._name = name;
-    this._id = id;
+
+class Artist {
+  private id: number;
+  private name: string;
+  private albums?: Album[];
+
+  public constructor(id: number, name: string, albums?: Album[]) {
+    this.name = name;
+    this.id = id;
+    this.albums = albums;
   }
 
   public getId(): number {
-    return this._id;
+    return this.id;
   }
 
   public getName(): string {
-    return this._name;
+    return this.name;
+  }
+
+  public getAlbums(): Album[] | undefined {
+    return this.albums;
   }
 }
 

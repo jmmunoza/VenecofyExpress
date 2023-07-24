@@ -19,23 +19,23 @@ class ArtistRepository implements ArtistRepositoryInterface {
     return this._instance;
   }
 
-  getArtist(id: number): Artist {
+  getArtist(id: number): Promise<Artist> {
     return this._artistService.getArtist(id);
   }
 
-  getAllArtists(): Artist[] {
+  getAllArtists(): Promise<Artist[]> {
     return this._artistService.getAllArtists();
   }
 
-  createArtist(artist: Artist): Artist {
+  createArtist(artist: Artist): Promise<Artist> {
     return this._artistService.createArtist(artist);
   }
 
-  updateArtist(artist: Artist): Artist {
+  updateArtist(artist: Artist): Promise<Artist> {
     return this._artistService.updateArtist(artist);
   }
 
-  deleteArtist(id: number): void {
+  deleteArtist(id: number): Promise<void> {
     return this._artistService.deleteArtist(id);
   }
 }

@@ -19,24 +19,24 @@ class TrackRepository implements TrackRepositoryInterface {
     return this._instance;
   }
 
-  getTrack(id: number): Track {
+  getTrack(id: number): Promise<Track> {
     return this._trackService.getTrack(id); 
   }
 
-  getAllTracks(): Track[] { 
+  getAllTracks(): Promise<Track[]> { 
     return this._trackService.getAllTracks(); 
   }
 
-  createTrack(track: Track): Track { 
+  createTrack(track: Track): Promise<Track> { 
     return this._trackService.createTrack(track);
   }
 
-  updateTrack(track: Track): Track { 
+  updateTrack(track: Track): Promise<Track> { 
     return this._trackService.updateTrack(track); 
   }
 
-  deleteTrack(id: number): void { 
-    this._trackService.deleteTrack(id);
+  deleteTrack(id: number): Promise<void> { 
+    return this._trackService.deleteTrack(id);
   }
 }
 

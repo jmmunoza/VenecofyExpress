@@ -18,20 +18,24 @@ class AlbumRepository implements AlbumRepositoryInterface {
     return this._instance;
   }
 
-  getAlbum(id: number): Album {
+  getAlbum(id: number): Promise<Album> {
     return this._albumService.getAlbum(id);
   }
-  getAllAlbums(): Album[] {
+  
+  getAllAlbums(): Promise<Album[]> {
     return this._albumService.getAllAlbums();
   }
-  createAlbum(album: Album): Album {
+
+  createAlbum(album: Album): Promise<Album> {
     return this._albumService.createAlbum(album);
   }
-  updateAlbum(album: Album): Album {
+
+  updateAlbum(album: Album): Promise<Album> {
     return this._albumService.updateAlbum(album);
   }
-  deleteAlbum(id: number): void {
-    this._albumService.deleteAlbum(id);
+
+  deleteAlbum(id: number): Promise<void> {
+    return this._albumService.deleteAlbum(id);
   } 
 }
 

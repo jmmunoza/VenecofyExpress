@@ -1,0 +1,38 @@
+// Run migrations code in the terminal
+// npx prisma migrate dev --name init --schema src/service/prisma/database/schema.prisma 
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Artist {
+  id     Int     @id @default(autoincrement())
+  name   String
+  albums Album[]
+  tracks Track[]
+}
+
+model Album {
+  id            Int       @id @default(autoincrement())
+  name          String
+  releaseDate   DateTime
+  artist        Artist    @relation(fields: [artistId], references: [id])
+  artistId      Int
+  tracks        Track[]
+}
+
+model Track {
+  id            Int     @id @default(autoincrement())
+  name          String
+  duration      Int
+  reproductions Int     @default(0)
+  album         Album   @relation(fields: [albumId], references: [id])
+  albumId       Int
+  artist        Artist  @relation(fields: [artistId], references: [id])
+  artistId      Int
+}

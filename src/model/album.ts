@@ -1,32 +1,39 @@
 import Artist from "./artist";
+import Track from "./track";
 
 class Album {
-  private _id: number;
-  private _name: string;
-  private _releaseDate: Date;
-  private _artist: Artist;
+  private id: number;
+  private name: string;
+  private releaseDate: Date;
+  private artist: Artist | number;
+  private tracks?: Track[];
 
-  public constructor(id: number, name: string, releaseDate: Date, artist: Artist) {
-    this._id = id;
-    this._name = name;
-    this._releaseDate = releaseDate;
-    this._artist = artist;
+  public constructor(id: number, name: string, releaseDate: Date, artist: Artist | number, tracks?: Track[]) {
+    this.id = id;
+    this.name = name;
+    this.releaseDate = releaseDate;
+    this.artist = artist;
+    this.tracks = tracks;
   }
 
   public getId(): number {
-    return this._id;
+    return this.id;
   }
 
   public getName(): string {
-    return this._name;
+    return this.name;
   }
 
   public getReleaseDate(): Date {
-    return this._releaseDate;
+    return this.releaseDate;
   }
 
-  public getArtist(): Artist {
-    return this._artist;
+  public getArtist(): Artist | number {
+    return this.artist;
+  }
+
+  public getTracks(): Track[] | undefined {
+    return this.tracks;
   }
 }
 

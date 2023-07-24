@@ -1,11 +1,11 @@
 import Track from "../../model/track";
 
 interface TrackServiceInterface {
-  getTrack(id: number): Track;
-  getAllTracks(): Track[];
-  createTrack(track: Track): Track;
-  updateTrack(track: Track): Track;
-  deleteTrack(id: number): void;
+  getTrack(id: number): Promise<Track>;
+  getAllTracks(): Promise<Track[]>;
+  createTrack(track: Track): Promise<Track>;
+  updateTrack(track: Track): Promise<Track>;
+  deleteTrack(id: number): Promise<void>;
 }
 
 export default TrackServiceInterface;

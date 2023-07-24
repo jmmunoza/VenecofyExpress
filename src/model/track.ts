@@ -2,44 +2,44 @@ import Album from "./album";
 import Artist from "./artist";
 
 class Track {
-  private _id: number;
-  private _name: string;
-  private _duration: number;
-  private _reproductions: number;
-  private _album: Album;
-  private _artist: Artist;
+  private id: number;
+  private name: string;
+  private duration: number;
+  private reproductions: number;
+  private album: Album | number;
+  private artist: Artist | number;
 
-  public constructor(id: number, name: string, duration: number, reproductions: number, album: Album, artist: Artist) {
-    this._id = id;
-    this._name = name;
-    this._duration = duration;
-    this._reproductions = reproductions;
-    this._album = album;
-    this._artist = artist;
+  public constructor(id: number, name: string, duration: number, reproductions: number, album: Album | number, artist: Artist | number) {
+    this.id = id;
+    this.name = name;
+    this.duration = duration;
+    this.reproductions = reproductions;
+    this.album = album;
+    this.artist = artist;
   }
 
   public getId(): number {
-    return this._id;
+    return this.id;
   }
 
   public getName(): string {
-    return this._name;
+    return this.name;
   }
 
   public getDuration(): number {
-    return this._duration;
+    return this.duration;
   }
 
   public getReproductions(): number {
-    return this._reproductions;
+    return this.reproductions;
   }
 
-  public getAlbum(): Album {
-    return this._album;
+  public getAlbum(): Album | number {
+    return this.album;
   }
 
-  public getArtist(): Artist {
-    return this._artist;
+  public getArtist(): Artist | number {
+    return this.artist;
   }
 }
 
